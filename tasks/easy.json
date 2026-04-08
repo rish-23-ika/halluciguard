@@ -1,0 +1,193 @@
+[
+  {
+    "id": "easy_1",
+    "passage": "Paris is the capital of France and London is the capital of Germany.",
+    "reference_facts": [
+      "Paris is the capital of France.",
+      "Berlin is the capital of Germany.",
+      "London is the capital of the United Kingdom."
+    ],
+    "claims": [
+      "Paris is the capital of France",
+      "London is the capital of Germany"
+    ],
+    "hallucinations": [1],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:france capital": "Paris is the capital of France.",
+      "wiki:germany capital": "Berlin is the capital of Germany.",
+      "wiki:london": "London is the capital of the United Kingdom.",
+      "nli:london germany capital": "CONTRADICTION: London is not the capital of Germany.",
+      "kg:germany": "Germany -> capital -> Berlin"
+    }
+  },
+  {
+    "id": "easy_2",
+    "passage": "The Sun revolves around the Earth once every 24 hours.",
+    "reference_facts": [
+      "The Earth revolves around the Sun.",
+      "The Earth rotates every 24 hours."
+    ],
+    "claims": [
+      "The Sun revolves around the Earth once every 24 hours"
+    ],
+    "hallucinations": [0],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:earth orbit": "The Earth revolves around the Sun.",
+      "wiki:earth rotation": "The Earth rotates every 24 hours.",
+      "nli:sun around earth": "CONTRADICTION: Earth revolves around the Sun.",
+      "kg:earth": "Earth -> orbits -> Sun"
+    }
+  },
+  {
+    "id": "easy_3",
+    "passage": "Water freezes at 0°C and boils at 100°C.",
+    "reference_facts": [
+      "Water freezes at 0°C.",
+      "Water boils at 100°C."
+    ],
+    "claims": [
+      "Water freezes at 0°C",
+      "Water boils at 100°C"
+    ],
+    "hallucinations": [],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:water freezing": "Water freezes at 0°C.",
+      "wiki:water boiling": "Water boils at 100°C.",
+      "nli:water freezing 0": "ENTAILMENT: Correct.",
+      "nli:water boiling 100": "ENTAILMENT: Correct."
+    }
+  },
+  {
+    "id": "easy_4",
+    "passage": "Mount Everest is the tallest mountain and is located in Africa.",
+    "reference_facts": [
+      "Mount Everest is the tallest mountain.",
+      "Mount Everest is located in Asia."
+    ],
+    "claims": [
+      "Mount Everest is the tallest mountain",
+      "Mount Everest is located in Africa"
+    ],
+    "hallucinations": [1],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:everest location": "Mount Everest is located in Asia.",
+      "wiki:everest height": "Mount Everest is the tallest mountain.",
+      "nli:everest africa": "CONTRADICTION: Everest is in Asia.",
+      "kg:everest": "Everest -> location -> Asia"
+    }
+  },
+  {
+    "id": "easy_5",
+    "passage": "The human heart has four chambers and is located in the chest.",
+    "reference_facts": [
+      "The human heart has four chambers.",
+      "The heart is located in the chest."
+    ],
+    "claims": [
+      "The human heart has four chambers",
+      "The heart is located in the chest"
+    ],
+    "hallucinations": [],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:heart chambers": "The human heart has four chambers.",
+      "wiki:heart location": "The heart is in the chest.",
+      "nli:heart four chambers": "ENTAILMENT: Correct."
+    }
+  },
+  {
+    "id": "easy_6",
+    "passage": "The Great Wall of China is visible from the Moon.",
+    "reference_facts": [
+      "The Great Wall is not visible from the Moon."
+    ],
+    "claims": [
+      "The Great Wall of China is visible from the Moon"
+    ],
+    "hallucinations": [0],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:great wall visibility": "The Great Wall is not visible from the Moon.",
+      "nli:great wall moon": "CONTRADICTION: Not visible from Moon.",
+      "kg:great wall": "Great Wall -> visible_from_moon -> FALSE"
+    }
+  },
+  {
+    "id": "easy_7",
+    "passage": "Shakespeare wrote Romeo and Juliet and was born in 1564.",
+    "reference_facts": [
+      "Shakespeare wrote Romeo and Juliet.",
+      "Shakespeare was born in 1564."
+    ],
+    "claims": [
+      "Shakespeare wrote Romeo and Juliet",
+      "Shakespeare was born in 1564"
+    ],
+    "hallucinations": [],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:shakespeare work": "Shakespeare wrote Romeo and Juliet.",
+      "wiki:shakespeare birth": "Shakespeare was born in 1564.",
+      "nli:shakespeare romeo": "ENTAILMENT: Correct."
+    }
+  },
+  {
+    "id": "easy_8",
+    "passage": "The Pacific Ocean is the largest ocean and is larger than the Atlantic Ocean.",
+    "reference_facts": [
+      "The Pacific Ocean is the largest ocean.",
+      "The Pacific Ocean is larger than the Atlantic Ocean."
+    ],
+    "claims": [
+      "The Pacific Ocean is the largest ocean",
+      "The Pacific Ocean is larger than the Atlantic Ocean"
+    ],
+    "hallucinations": [],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:pacific ocean": "Pacific is the largest ocean.",
+      "wiki:pacific atlantic": "Pacific is larger than Atlantic.",
+      "nli:pacific largest": "ENTAILMENT: Correct."
+    }
+  },
+  {
+    "id": "easy_9",
+    "passage": "The speed of light is slower than sound.",
+    "reference_facts": [
+      "Light travels faster than sound."
+    ],
+    "claims": [
+      "The speed of light is slower than sound"
+    ],
+    "hallucinations": [0],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:light speed": "Light is faster than sound.",
+      "nli:light slower": "CONTRADICTION: Light is faster.",
+      "kg:light": "Light -> faster_than_sound -> TRUE"
+    }
+  },
+  {
+    "id": "easy_10",
+    "passage": "India's capital is New Delhi and it is the largest democracy.",
+    "reference_facts": [
+      "India's capital is New Delhi.",
+      "India is the largest democracy."
+    ],
+    "claims": [
+      "India's capital is New Delhi",
+      "India is the largest democracy"
+    ],
+    "hallucinations": [],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:india capital": "New Delhi is the capital of India.",
+      "wiki:india democracy": "India is the largest democracy.",
+      "nli:india capital": "ENTAILMENT: Correct."
+    }
+  }
+]

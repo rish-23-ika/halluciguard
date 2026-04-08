@@ -1,0 +1,97 @@
+[
+  {
+    "id": "hard_1",
+    "passage": "India has more Nobel laureates in Physics than Japan.",
+    "reference_facts": [
+      "India has 1 Physics Nobel.",
+      "Japan has many."
+    ],
+    "claims": [
+      "India has more physics nobels than Japan"
+    ],
+    "hallucinations": [0],
+    "max_steps": 10,
+    "tool_responses": {
+      "wiki:india nobel": "India has 1 physics Nobel.",
+      "wiki:japan nobel": "Japan has many physics Nobels.",
+      "nli:india more japan": "CONTRADICTION: Japan has more.",
+      "kg:nobel": "Japan > India"
+    }
+  },
+  {
+    "id": "hard_2",
+    "passage": "Water boils at 100°C everywhere so cooking time is same.",
+    "reference_facts": [
+      "Boiling point varies.",
+      "Cooking time increases."
+    ],
+    "claims": [
+      "Water boils 100 everywhere",
+      "Cooking time same"
+    ],
+    "hallucinations": [0, 1],
+    "max_steps": 10,
+    "tool_responses": {
+      "wiki:boiling altitude": "Boiling changes with altitude.",
+      "wiki:cooking altitude": "Cooking slower at altitude.",
+      "nli:boiling same": "CONTRADICTION: Not constant.",
+      "nli:cooking same": "CONTRADICTION: Changes.",
+      "kg:boiling": "Altitude affects boiling"
+    }
+  },
+  {
+    "id": "hard_3",
+    "passage": "Dolphins are fish so they are not warm blooded.",
+    "reference_facts": [
+      "Dolphins are mammals.",
+      "Mammals are warm blooded."
+    ],
+    "claims": [
+      "Dolphins are fish",
+      "Dolphins not warm blooded"
+    ],
+    "hallucinations": [0, 1],
+    "max_steps": 10,
+    "tool_responses": {
+      "wiki:dolphin": "Dolphins are mammals.",
+      "wiki:mammal": "Mammals are warm blooded.",
+      "nli:dolphin fish": "CONTRADICTION: Dolphins are mammals.",
+      "nli:not warm": "CONTRADICTION: Mammals are warm blooded.",
+      "kg:dolphin": "Dolphin -> mammal"
+    }
+  },
+  {
+    "id": "hard_4",
+    "passage": "Amazon produces more than half of world's oxygen.",
+    "reference_facts": [
+      "Amazon produces ~6-9% oxygen."
+    ],
+    "claims": [
+      "Amazon produces half oxygen"
+    ],
+    "hallucinations": [0],
+    "max_steps": 10,
+    "tool_responses": {
+      "wiki:amazon oxygen": "Amazon produces ~6-9%.",
+      "nli:amazon half": "CONTRADICTION: Not half.",
+      "kg:oxygen": "Amazon < 10%"
+    }
+  },
+  {
+    "id": "hard_5",
+    "passage": "Higher GDP always means better living.",
+    "reference_facts": [
+      "GDP not equal to living standard."
+    ],
+    "claims": [
+      "GDP always better living"
+    ],
+    "hallucinations": [0],
+    "max_steps": 10,
+    "tool_responses": {
+      "wiki:gdp living": "GDP not equal to quality of life.",
+      "nli:gdp always": "CONTRADICTION: Not always.",
+      "kg:gdp": "Weak correlation"
+    }
+  }
+]

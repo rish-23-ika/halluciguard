@@ -1,0 +1,181 @@
+[
+  {
+    "id": "med_1",
+    "passage": "Mahatma Gandhi was born in 1870 and led the Salt March in 1930.",
+    "reference_facts": [
+      "Gandhi was born in 1869.",
+      "The Salt March took place in 1930."
+    ],
+    "claims": [
+      "Gandhi was born in 1870",
+      "He led the Salt March in 1930"
+    ],
+    "hallucinations": [0],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:gandhi birth": "Gandhi was born in 1869.",
+      "wiki:salt march": "Salt March happened in 1930.",
+      "nli:gandhi 1870": "CONTRADICTION: Gandhi was born in 1869.",
+      "kg:gandhi": "Gandhi -> birth_year -> 1869"
+    }
+  },
+  {
+    "id": "med_2",
+    "passage": "The human body has 210 bones at birth and 206 in adulthood.",
+    "reference_facts": [
+      "Humans are born with about 270 bones.",
+      "Adults have 206 bones."
+    ],
+    "claims": [
+      "Humans have 210 bones at birth",
+      "Adults have 206 bones"
+    ],
+    "hallucinations": [0],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:bones birth": "Humans are born with about 270 bones.",
+      "wiki:adult bones": "Adults have 206 bones.",
+      "nli:210 bones": "CONTRADICTION: Humans have ~270 bones at birth.",
+      "kg:human bones": "Human -> bones_birth -> 270"
+    }
+  },
+  {
+    "id": "med_3",
+    "passage": "World War II ended in 1945 after lasting six years.",
+    "reference_facts": [
+      "World War II ended in 1945.",
+      "It lasted about six years."
+    ],
+    "claims": [
+      "World War II ended in 1945",
+      "It lasted six years"
+    ],
+    "hallucinations": [],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:ww2 end": "WW2 ended in 1945.",
+      "wiki:ww2 duration": "WW2 lasted 6 years.",
+      "nli:ww2 1945": "ENTAILMENT: Correct."
+    }
+  },
+  {
+    "id": "med_4",
+    "passage": "The Amazon River is about 6,000 km long and is the longest river in the world.",
+    "reference_facts": [
+      "Amazon is ~6400 km long.",
+      "Nile is usually longest."
+    ],
+    "claims": [
+      "Amazon is 6000 km long",
+      "It is the longest river"
+    ],
+    "hallucinations": [0, 1],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:amazon length": "Amazon is about 6400 km.",
+      "wiki:longest river": "Nile is considered longest.",
+      "nli:amazon 6000": "CONTRADICTION: Amazon is ~6400 km.",
+      "nli:amazon longest": "CONTRADICTION: Nile is longest.",
+      "kg:amazon": "Amazon -> length -> 6400"
+    }
+  },
+  {
+    "id": "med_5",
+    "passage": "Einstein published the theory of relativity in 1915.",
+    "reference_facts": [
+      "General relativity was published in 1915."
+    ],
+    "claims": [
+      "Einstein published relativity in 1915"
+    ],
+    "hallucinations": [],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:relativity": "Einstein published general relativity in 1915.",
+      "nli:relativity 1915": "ENTAILMENT: Correct."
+    }
+  },
+  {
+    "id": "med_6",
+    "passage": "Water boils at lower temperatures at higher altitudes.",
+    "reference_facts": [
+      "Boiling point decreases at altitude."
+    ],
+    "claims": [
+      "Water boils lower at altitude"
+    ],
+    "hallucinations": [],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:boiling altitude": "Boiling point decreases with altitude.",
+      "nli:boiling lower": "ENTAILMENT: Correct."
+    }
+  },
+  {
+    "id": "med_7",
+    "passage": "India gained independence in 1947 after British rule.",
+    "reference_facts": [
+      "India gained independence in 1947."
+    ],
+    "claims": [
+      "India gained independence in 1947"
+    ],
+    "hallucinations": [],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:india independence": "India got independence in 1947.",
+      "nli:india 1947": "ENTAILMENT: Correct."
+    }
+  },
+  {
+    "id": "med_8",
+    "passage": "The human brain consumes about 20% of the body's energy.",
+    "reference_facts": [
+      "Brain uses ~20% energy."
+    ],
+    "claims": [
+      "Brain uses 20% energy"
+    ],
+    "hallucinations": [],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:brain energy": "Brain uses about 20% energy.",
+      "nli:brain 20": "ENTAILMENT: Correct."
+    }
+  },
+  {
+    "id": "med_9",
+    "passage": "Light travels faster than sound.",
+    "reference_facts": [
+      "Light is faster than sound."
+    ],
+    "claims": [
+      "Light is faster than sound"
+    ],
+    "hallucinations": [],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:light speed": "Light is faster than sound.",
+      "nli:light fast": "ENTAILMENT: Correct."
+    }
+  },
+  {
+    "id": "med_10",
+    "passage": "Tokyo is the capital of Japan and the country uses Yen.",
+    "reference_facts": [
+      "Tokyo is capital.",
+      "Japan uses Yen."
+    ],
+    "claims": [
+      "Tokyo is capital of Japan",
+      "Japan uses Yen"
+    ],
+    "hallucinations": [],
+    "max_steps": 8,
+    "tool_responses": {
+      "wiki:japan capital": "Tokyo is capital.",
+      "wiki:japan yen": "Japan uses Yen.",
+      "nli:tokyo capital": "ENTAILMENT: Correct."
+    }
+  }
+]

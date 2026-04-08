@@ -1,0 +1,68 @@
+name: halluciguard
+version: "2.0.0"
+description: "HalluciChain — Tool-Augmented Hallucination Detection RL Environment. Agents must query external tools (wiki/NLI/knowledge graph) to gather evidence before detecting and correcting factual hallucinations in LLM-generated text."
+author: "Rishika Rastogi's Team"
+
+tags:
+  - openenv
+  - hallucination-detection
+  - agentic-reasoning
+  - tool-augmented-rl
+  - fact-checking
+
+endpoints:
+  health: GET /health
+  reset: POST /reset
+  step: POST /step
+  state: GET /state
+  tasks: GET /tasks
+  grader: POST /grader
+  analysis: GET /analysis
+
+tasks:
+  - id: easy
+    difficulty: easy
+    description: "Obvious hallucinations with straightforward tool lookups"
+    max_steps: 8
+  - id: medium
+    difficulty: medium
+    description: "Subtle errors requiring precise tool queries"
+    max_steps: 8
+  - id: hard
+    difficulty: hard
+    description: "Multi-hop reasoning combining multiple tool results"
+    max_steps: 10
+
+models:
+  observation:
+    type: Observation
+    fields:
+      - passage (str)
+      - claims (List[str])
+      - flagged_so_far (List[int])
+      - retrieved_facts (List[str]) — starts empty, built via tool queries
+      - step_number (int)
+      - task_id (str)
+      - max_steps (int)
+      - tools_available (List[str]) — wiki, nli, kg
+  action:
+    type: Action
+    fields:
+      - action_type (str) — query_tool, flag, or done
+      - tool_name (Optional[str]) — wiki, nli, or kg
+      - tool_input (Optional[str]) — query string for the tool
+      - claim_index (Optional[int])
+      - reasoning (Optional[str])
+      - correction (Optional[str])
+
+reward:
+  type: dense
+  range: [-0.25, 0.60]
+  description: "Per-step rewards for tool usage, evidence-backed flagging, reasoning, corrections, and efficiency"
+
+features:
+  - hallucichain: "Agent must query mock external tools before flagging — agentic reasoning benchmark"
+  - tool_augmented: "Three tool types: wiki (factual lookup), nli (entailment check), kg (knowledge graph)"
+  - contrastive_correction: "Agent must provide corrected claims, not just flag errors"
+  - evidence_requirement: "Evidence-backed flags rewarded higher than blind flags"
+  - anti_exploitation: "Repeated/redundant actions penalized"
